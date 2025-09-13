@@ -142,22 +142,22 @@
   animation: sparks 0.3s ease-in 0.3s 1 backwards;
 }
 
-.card__icon-button:hover .core{
+.card__icon-button:hover .core {
   fill: var(--contour-color);
   transition-delay: 0s;
 }
 
-.card__icon-button:hover .main-body{
+.card__icon-button:hover .main-body {
   fill: var(--contour-color);
   transition-delay: 0.05s;
 }
 
-.card__icon-button:active .core{
+.card__icon-button:active .core {
   fill: var(--heart-color);
   transition-delay: 0s;
 }
 
-.card__icon-button:active .main-body{
+.card__icon-button:active .main-body {
   fill: var(--heart-color);
   transition-delay: 0.05s;
 }
@@ -257,15 +257,15 @@
   text-transform: uppercase;
 }
 
-@supports ((-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff)){
-  .card__label{
+@supports ((-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff)) {
+  .card__label {
     -webkit-text-stroke: 1px var(--background-color);
     text-stroke: 1px var(--background-color);
   }
 }
 
-@supports not ((-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff)){
-  .card__label{
+@supports not ((-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff)) {
+  .card__label {
     text-shadow:
       -1px 0 var(--background-color),
        1px 0 var(--background-color),
