@@ -2,6 +2,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font-family-base);
+  font-variation-settings: "wght" var(--font-wght-base);
 }
 
 .background__gradient__page {
@@ -20,25 +21,25 @@
   margin: 100px auto 98px;
   border: var(--accent-color) 2px solid;
   background-color: var(--background-color);
-  height: 368px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  padding: 130px 0;
 }
 
 .header__title {
   font-family: var(--font-family-accent);
-  font-size: 65px;
-  font-weight: var(--font-weight-base);
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  font-weight: var(--font-wght-base);
   text-transform: uppercase;
   color: var(--accent-color);
 }
 
 .header__subtitle {
   font-family: var(--font-family-accent);
-  font-size: 23px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-weight: var(--font-weight-base);
   text-transform: uppercase;
   color: var(--accent-color);
@@ -66,7 +67,7 @@
 
 .card__title {
   padding: 4px 10px;
-  font-weight: var(--font-weight-title);
+  font-variation-settings: "wght" var(--font-wght-title);
   font-size: 18px;
   vertical-align: middle;
 }
@@ -92,7 +93,7 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
-  font-weight: var(--font-weight-text);
+  font-weight: var(--font-wght-text);
   font-size: 18px;
   line-height: 21px;
   color: #000;
@@ -202,7 +203,7 @@
 
 .button__text { /*текст в кнопке*/
   font-family: var(--font-family-accent);
-  font-weight: var(--font-weight-base);
+  font-weight: var(--font-wght-base);
   font-size: 14px;
   line-height: 90%;
   color: var(--background-color);
@@ -210,18 +211,15 @@
   mix-blend-mode: difference;
 }
 
-.card__like-button { /*текстовая кнопка лайка*/
-  width: 130px;
-  padding: 9px 17px;
+.button { /*стиль для всех кнопок (анимация)*/
+  cursor: pointer;
   border: 2px solid var(--accent-color);
   background-color: var(--background-color);
-  height: 38px;
-  cursor: pointer;
   overflow: hidden;
   position: relative;
 }
 
-.card__like-button::before {
+.button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -230,14 +228,20 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.card__like-button:hover::before {
+.button:hover::before {
   transform: translateX(0);
 }
 
-.card__like-button:focus {
+.button:focus {
   outline: 0;
   box-shadow: 2px 2px 0 0 var(--accent-color);
   transition: 0.3s ease;
+}
+
+.card__like-button { /*текстовая кнопка лайка*/
+  width: 130px;
+  padding: 9px 17px;
+  height: 38px;
 }
 
 .card__image__label {
@@ -251,31 +255,26 @@
   mix-blend-mode: hard-light;
   opacity: 0.5;
   font-family: var(--font-family-accent);
-  font-weight: var(--font-weight-base);
+  font-weight: var(--font-wght-base);
   font-size: 14px;
-  vertical-align: middle;
   text-transform: uppercase;
+  text-shadow:
+      -1px 0 var(--background-color),
+       1px 0 var(--background-color),
+       0 -1px var(--background-color),
+       0 1px var(--background-color);
 }
 
 @supports ((-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff)) {
   .card__label {
     -webkit-text-stroke: 1px var(--background-color);
     text-stroke: 1px var(--background-color);
-  }
-}
-
-@supports not ((-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff)) {
-  .card__label {
-    text-shadow:
-      -1px 0 var(--background-color),
-       1px 0 var(--background-color),
-       0 -1px var(--background-color),
-       0 1px var(--background-color);
+    text-shadow: none;
   }
 }
 
 .dialog__button__icon {
-  width: 21px;
+  width: 22px;
   height: 21px;
   mix-blend-mode: difference;
   color: var(--background-color);
@@ -292,27 +291,9 @@
   flex-direction: row;
   gap: 8px;
   padding: 15px 20px;
-  border: 2px solid var(--accent-color);
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  background-color: var(--background-color);
-}
-
-.dialog__button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--accent-color);
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-}
-
-.dialog__button:hover::before {
-  transform: translateX(0);
 }
 
 .dialog__content { /*всплывашка*/
@@ -342,17 +323,13 @@
   gap: 20px;
 }
 
-.dialog__icon {
-  width: 39px;
-  height: 39px;
-}
-
 .dialog__text {
   font-family: var(--font-family-accent);
-  font-weight: var(--font-weight-base);
+  font-weight: var(--font-wght-base);
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
+  max-width: 234px;
 }
 
 .dialog__button__close {
@@ -394,16 +371,8 @@
 @media (width <= 375px) {
   .header {
     width: 100%;
-    margin: 100px auto 100px;
-    height: 327px;
-  }
-
-  .header__title {
-    font-size: 49px;
-  }
-
-  .header__subtitle {
-    font-size: 14px;
+    margin: 100px 0 100px;
+    padding: 122px 16px;
   }
 
   .card__buttons {
@@ -422,9 +391,5 @@
   .dialog__content {
     width: 341px;
     padding: 30px 40px;
-  }
-
-  .button__text {
-    height: 13px;
   }
 }

@@ -1,10 +1,10 @@
 :root {
   --font-family-base: "Inter", Roboto, sans-serif;
   --font-family-accent: "PressStart2P", monospace;
-  --font-weight-title: 715;
+  --font-wght-title: 715;
   --width-content-page: clamp(375px, 100%, 700px);
-  --font-weight-base: 400;
-  --font-weight-text: 410;
+  --font-wght-base: 400;
+  --font-wght-text: 410;
   --background-color: #fff;
   --accent-color: #000;
   --contour-color: #000;
