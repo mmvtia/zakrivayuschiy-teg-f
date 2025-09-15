@@ -103,16 +103,15 @@
 .card__buttons {
   display: flex;
   flex-direction: row;
-  gap: 8px;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
+  gap: 0px;
 }
 
 .like-icon {
-  width: 100%;
-  height: 100%;
   fill: none;
   display: block;
+  justify-content: end;
 }
 
 .core {
@@ -181,6 +180,7 @@
 .card__icon-button { /*иконка лайка*/
   inline-size: 44px;
   block-size: 44px;
+  flex: 0 0 44px;
   display: grid;
   place-items: center;
   padding: 0;
@@ -329,7 +329,7 @@
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
-  max-width: 234px;
+  max-width: none;
 }
 
 .dialog__button__close {
@@ -338,6 +338,13 @@
   justify-content: center;
   align-items: center;
   margin-inline: auto;
+}
+
+.floppy__close {
+  width: 38px;
+  height: 38px;
+  display: block;
+  flex: 0 0 38px;
 }
 
 .filter__saturate { /*2 супер яркость*/
@@ -379,6 +386,13 @@
     gap: 12px;
   }         
 
+  .card__icon-button {
+    inline-size: 44px;
+    block-size: 44px;
+    flex: 0 0 44px;
+    margin-inline-end: -9px;
+  }
+
   .dialog__button__icon {
     width: 28px;
     height: 28px;
@@ -389,7 +403,11 @@
   }
 
   .dialog__content {
-    width: 341px;
     padding: 30px 40px;
+  }
+
+  .dialog__text { /*я искринне не понимаю как сделать, при 375px текст в 3 строчки*/
+    width: 202px; 
+    flex: 1 1 202px; 
   }
 }
