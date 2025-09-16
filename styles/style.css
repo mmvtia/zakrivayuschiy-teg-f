@@ -403,10 +403,10 @@
   }
 
   .dialog__content {
-    padding: 30px 40px;
+    padding: 30px 39px;
   }
 
-  .dialog__text { /*я искринне не понимаю как сделать, при 375px текст в 3 строчки*/
+  .dialog__text {
     width: 202px; 
     flex: 1 1 202px; 
   }
